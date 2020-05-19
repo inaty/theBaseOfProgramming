@@ -10,11 +10,8 @@ let kihonkyu = 100
 
 (* 目的：働いた時間 x に応じたアルバイト代を計算する。この際に週に３０時間働いた人には優遇時給を適用し、そうでない人には通常時給を適用する。 *)
 (* kyuyo : int -> int *)
-(* let kyuyo x = kihonkyu + x * jikyu *)
 let kyuyo x =
-    if x < 30 then kihonkyu + x * jikyu
-              else kihonkyu + x * yugu_jikyu
-
+  kihonkyu + x * (if x < 30 then jikyu else yugu_jikyu)
 
 (* テスト *)
 let test1 = kyuyo 25 = 23850
